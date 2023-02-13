@@ -6,7 +6,7 @@ import InputText from "@/views/components/inputs/input-text.vue";
 import { useForm, usePage } from "@inertiajs/vue3";
 import { route } from "momentum-trail";
 
-const user = usePage().props.auth.user;
+const user = usePage().props.user;
 
 const form = useForm<{
     name: string,

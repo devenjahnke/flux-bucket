@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Head, Link } from "@inertiajs/vue3";
+import {Head, Link, usePage} from "@inertiajs/vue3";
 import { route } from "momentum-trail";
 
 defineProps<{
@@ -8,6 +8,8 @@ defineProps<{
     laravelVersion: string,
     phpVersion: string
 }>();
+
+const page = usePage();
 </script>
 
 <template>
@@ -21,7 +23,7 @@ defineProps<{
             class="fixed top-0 right-0 hidden px-6 py-4 sm:block"
         >
             <Link
-                v-if="$page.props.auth.user"
+                v-if="page.props.user"
                 :href="route('dashboard')"
                 class="text-sm text-gray-700 underline dark:text-gray-500"
                 >Dashboard</Link
