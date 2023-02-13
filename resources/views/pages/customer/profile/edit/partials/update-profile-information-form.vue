@@ -3,12 +3,8 @@ import InputError from "@/views/components/inputs/input-error.vue";
 import InputLabel from "@/views/components/inputs/input-label.vue";
 import ButtonPrimary from "@/views/components/buttons/button-primary.vue";
 import InputText from "@/views/components/inputs/input-text.vue";
-import { Link, useForm, usePage } from "@inertiajs/vue3";
-
-const props = defineProps<{
-    mustVerifyEmail: boolean,
-    status?: string
-}>();
+import { useForm, usePage } from "@inertiajs/vue3";
+import { route } from "momentum-trail";
 
 const user = usePage().props.auth.user;
 
@@ -74,27 +70,6 @@ const form = useForm<{
                     class="mt-2"
                     :message="form.errors.email"
                 />
-            </div>
-
-            <div v-if="props.mustVerifyEmail && user.email_verified_at === null">
-                <p class="mt-2 text-sm text-gray-800">
-                    Your email address is unverified.
-                    <Link
-                        :href="route('verification.send')"
-                        method="post"
-                        as="button"
-                        class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                    >
-                        Click here to re-send the verification email.
-                    </Link>
-                </p>
-
-                <div
-                    v-show="props.status === 'verification-link-sent'"
-                    class="mt-2 text-sm font-medium text-green-600"
-                >
-                    A new verification link has been sent to your email address.
-                </div>
             </div>
 
             <div class="flex items-center gap-4">

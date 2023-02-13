@@ -5,6 +5,7 @@ import InputLabel from "@/views/components/inputs/input-label.vue";
 import ButtonPrimary from "@/views/components/buttons/button-primary.vue";
 import InputText from "@/views/components/inputs/input-text.vue";
 import { Head, useForm } from "@inertiajs/vue3";
+import { route } from "momentum-trail";
 
 const form = useForm({
     password: "",

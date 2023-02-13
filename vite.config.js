@@ -22,7 +22,11 @@ export default defineConfig({
         watch({
             pattern: "app/{Data,Enums}/**/*.php",
             command: "php artisan typescript:transform",
-        })
+        }),
+        watch({
+            pattern: "routes/*.php",
+            command: "php artisan trail:generate",
+        }),
     ],
     resolve: {
       alias: {

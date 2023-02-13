@@ -6,6 +6,7 @@ import NavigationDropdownLink from "@/views/components/navigations/navigation-dr
 import NavLink from "@/views/components/navigations/navigation-link.vue";
 import ResponsiveNavLink from "@/views/components/navigations/navigation-link-responsive.vue";
 import { Link } from "@inertiajs/vue3";
+import { route } from "momentum-trail";
 
 const showingNavigationDropdown = ref<boolean>(false);
 </script>
