@@ -1,13 +1,13 @@
-<script setup>
+<script setup lang="ts">
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import UpdatePasswordForm from "./Partials/UpdatePasswordForm.vue";
 import UpdateProfileInformationForm from "./Partials/UpdateProfileInformationForm.vue";
 import { Head } from "@inertiajs/vue3";
 
-defineProps({
-    mustVerifyEmail: Boolean,
-    status: String,
-});
+defineProps<{
+    mustVerifyEmail: boolean,
+    status?: string
+}>();
 </script>
 
 <template>
