@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import InputError from "@/Components/InputError.vue";
-import InputLabel from "@/Components/InputLabel.vue";
-import PrimaryButton from "@/Components/PrimaryButton.vue";
-import TextInput from "@/Components/TextInput.vue";
+import InputError from "@/views/components/inputs/input-error.vue";
+import InputLabel from "@/views/components/inputs/input-label.vue";
+import ButtonPrimary from "@/views/components/buttons/button-primary.vue";
+import InputText from "@/views/components/inputs/input-text.vue";
 import { useForm } from "@inertiajs/vue3";
 import { ref } from "vue";
 
@@ -57,7 +57,7 @@ const updatePassword = () => {
                     value="Current Password"
                 />
 
-                <TextInput
+                <InputText
                     id="current_password"
                     ref="currentPasswordInput"
                     v-model="form.current_password"
@@ -78,7 +78,7 @@ const updatePassword = () => {
                     value="New Password"
                 />
 
-                <TextInput
+                <InputText
                     id="password"
                     ref="passwordInput"
                     v-model="form.password"
@@ -99,7 +99,7 @@ const updatePassword = () => {
                     value="Confirm Password"
                 />
 
-                <TextInput
+                <InputText
                     id="password_confirmation"
                     v-model="form.password_confirmation"
                     type="password"
@@ -114,7 +114,7 @@ const updatePassword = () => {
             </div>
 
             <div class="flex items-center gap-4">
-                <PrimaryButton :disabled="form.processing">Save</PrimaryButton>
+                <ButtonPrimary :disabled="form.processing">Save</ButtonPrimary>
 
                 <Transition
                     enter-from-class="opacity-0"

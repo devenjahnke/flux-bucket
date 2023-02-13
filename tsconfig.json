@@ -9,7 +9,7 @@
         "module": "ESNext",
         "moduleResolution": "Node",
         "paths": {
-            "@/*": ["resources/js/*"]
+            "@/*": ["resources/*"]
         },
         "resolveJsonModule": true,
         "skipLibCheck": true,
@@ -19,7 +19,8 @@
         "types": ["vite/client", "node"]
     },
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "public"
     ],
     "include": [
         "resources/**/*.ts",

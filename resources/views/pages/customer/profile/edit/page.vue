@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import UpdatePasswordForm from "./Partials/UpdatePasswordForm.vue";
-import UpdateProfileInformationForm from "./Partials/UpdateProfileInformationForm.vue";
+import LayoutAuthenticated from "@/views/layouts/authenticated/layout-authenticated.vue";
+import UpdatePasswordForm from "@/views/pages/customer/profile/edit/partials/update-password-form.vue";
+import UpdateProfileInformationForm from "@/views/pages/customer/profile/edit/partials/update-profile-information-form.vue";
 import { Head } from "@inertiajs/vue3";
 
 defineProps<{
@@ -13,7 +13,7 @@ defineProps<{
 <template>
     <Head title="Profile" />
 
-    <AuthenticatedLayout>
+    <LayoutAuthenticated>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">Profile</h2>
         </template>
@@ -33,5 +33,5 @@ defineProps<{
                 </div>
             </div>
         </div>
-    </AuthenticatedLayout>
+    </LayoutAuthenticated>
 </template>
