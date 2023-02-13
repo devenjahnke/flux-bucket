@@ -1,9 +1,8 @@
-<script setup>
-defineProps({
-    type: {
-        type: String,
-        default: "submit",
-    },
+<script setup lang="ts">
+withDefaults(defineProps<{
+    type?: "submit" | "button" | "reset"
+}>(), {
+    type: "submit"
 });
 </script>
 

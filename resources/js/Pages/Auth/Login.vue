@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import Checkbox from "@/Components/Checkbox.vue";
 import GuestLayout from "@/Layouts/GuestLayout.vue";
 import InputError from "@/Components/InputError.vue";
@@ -7,12 +7,16 @@ import PrimaryButton from "@/Components/PrimaryButton.vue";
 import TextInput from "@/Components/TextInput.vue";
 import { Head, Link, useForm } from "@inertiajs/vue3";
 
-defineProps({
-    canResetPassword: Boolean,
-    status: String,
-});
+defineProps<{
+    canResetPassword: boolean,
+    status: string|null
+}>();
 
-const form = useForm({
+const form = useForm<{
+    email: string,
+    password: string,
+    remember: boolean
+}>({
     email: "",
     password: "",
     remember: false,
@@ -45,9 +49,9 @@ const submit = () => {
 
                 <TextInput
                     id="email"
+                    v-model="form.email"
                     type="email"
                     class="mt-1 block w-full"
-                    v-model="form.email"
                     required
                     autofocus
                     autocomplete="username"
@@ -67,9 +71,9 @@ const submit = () => {
 
                 <TextInput
                     id="password"
+                    v-model="form.password"
                     type="password"
                     class="mt-1 block w-full"
-                    v-model="form.password"
                     required
                     autocomplete="current-password"
                 />
@@ -83,9 +87,10 @@ const submit = () => {
             <div class="mt-4 block">
                 <label class="flex items-center">
                     <Checkbox
-                        name="remember"
                         v-model:checked="form.remember"
+                        name="remember"
                     />
+
                     <span class="ml-2 text-sm text-gray-600">Remember me</span>
                 </label>
             </div>

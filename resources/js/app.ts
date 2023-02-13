@@ -14,6 +14,7 @@ createInertiaApp({
     resolve: (name: string) =>
         resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob("./Pages/**/*.vue")) as Promise<DefineComponent>,
     setup({ el, App, props, plugin }) {
+        // eslint-disable-next-line vue/component-api-style
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue, Ziggy)
