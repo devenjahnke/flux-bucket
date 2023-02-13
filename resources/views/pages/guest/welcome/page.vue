@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Head, Link } from "@inertiajs/vue3";
+import { route } from "momentum-trail";
 
 defineProps<{
     canLogin: boolean,
@@ -31,13 +32,6 @@ defineProps<{
                     :href="route('login')"
                     class="text-sm text-gray-700 underline dark:text-gray-500"
                     >Log in</Link
-                >
-
-                <Link
-                    v-if="canRegister"
-                    :href="route('register')"
-                    class="ml-4 text-sm text-gray-700 underline dark:text-gray-500"
-                    >Register</Link
                 >
             </template>
         </div>

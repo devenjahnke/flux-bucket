@@ -33,6 +33,7 @@
         "vue-tsc": "^1.0.24"
     },
     "dependencies": {
-        "momentum-paginator": "^1.0.6"
+        "momentum-paginator": "^1.0.6",
+        "momentum-trail": "^0.3.1"
     }
 }

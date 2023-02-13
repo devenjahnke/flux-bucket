@@ -5,7 +5,8 @@ import InputError from "@/views/components/inputs/input-error.vue";
 import InputLabel from "@/views/components/inputs/input-label.vue";
 import ButtonPrimary from "@/views/components/buttons/button-primary.vue";
 import InputText from "@/views/components/inputs/input-text.vue";
-import { Head, Link, useForm } from "@inertiajs/vue3";
+import { Head, useForm } from "@inertiajs/vue3";
+import { route } from "momentum-trail";
 
 defineProps<{
     canResetPassword: boolean,
@@ -96,14 +97,6 @@ const submit = () => {
             </div>
 
             <div class="mt-4 flex items-center justify-end">
-                <Link
-                    v-if="canResetPassword"
-                    :href="route('password.request')"
-                    class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                >
-                    Forgot your password?
-                </Link>
-
                 <ButtonPrimary
                     class="ml-4"
                     :class="{ 'opacity-25': form.processing }"

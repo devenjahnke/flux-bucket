@@ -4,10 +4,6 @@ import UpdatePasswordForm from "@/views/pages/customer/profile/edit/partials/upd
 import UpdateProfileInformationForm from "@/views/pages/customer/profile/edit/partials/update-profile-information-form.vue";
 import { Head } from "@inertiajs/vue3";
 
-defineProps<{
-    mustVerifyEmail: boolean,
-    status?: string
-}>();
 </script>
 
 <template>
@@ -22,8 +18,6 @@ defineProps<{
             <div class="mx-auto max-w-7xl space-y-6 sm:px-6 lg:px-8">
                 <div class="bg-white p-4 shadow sm:rounded-lg sm:p-8">
                     <UpdateProfileInformationForm
-                        :must-verify-email="mustVerifyEmail"
-                        :status="status"
                         class="max-w-xl"
                     />
                 </div>

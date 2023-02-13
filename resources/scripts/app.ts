@@ -3,7 +3,8 @@ import "@/css/app.css";
 import { createApp, DefineComponent, h } from "vue";
 import { createInertiaApp } from "@inertiajs/vue3";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
-import { ZiggyVue } from "../../vendor/tightenco/ziggy/dist/vue.m";
+import { trail } from "momentum-trail";
+import routes from "./routes/routes.json";
 
 const appName = window.document.getElementsByTagName("title")[0]?.innerText || "Flux Bucket";
 
@@ -15,7 +16,7 @@ createInertiaApp({
         // eslint-disable-next-line vue/component-api-style
         createApp({ render: () => h(App, props) })
             .use(plugin)
-            .use(ZiggyVue, Ziggy)
+            .use(trail, { routes })
             .mount(el);
     },
     progress: {

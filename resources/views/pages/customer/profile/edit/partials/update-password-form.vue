@@ -5,6 +5,7 @@ import ButtonPrimary from "@/views/components/buttons/button-primary.vue";
 import InputText from "@/views/components/inputs/input-text.vue";
 import { useForm } from "@inertiajs/vue3";
 import { ref } from "vue";
+import { route } from "momentum-trail";
 
 const passwordInput = ref<HTMLInputElement>();
 const currentPasswordInput = ref<HTMLInputElement>();
