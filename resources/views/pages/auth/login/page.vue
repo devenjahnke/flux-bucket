@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import Checkbox from "@/Components/Checkbox.vue";
-import GuestLayout from "@/Layouts/GuestLayout.vue";
-import InputError from "@/Components/InputError.vue";
-import InputLabel from "@/Components/InputLabel.vue";
-import PrimaryButton from "@/Components/PrimaryButton.vue";
-import TextInput from "@/Components/TextInput.vue";
+import InputCheckbox from "@/views/components/inputs/input-checkbox.vue";
+import LayoutGuest from "@/views/layouts/guest/layout-guest.vue";
+import InputError from "@/views/components/inputs/input-error.vue";
+import InputLabel from "@/views/components/inputs/input-label.vue";
+import ButtonPrimary from "@/views/components/buttons/button-primary.vue";
+import InputText from "@/views/components/inputs/input-text.vue";
 import { Head, Link, useForm } from "@inertiajs/vue3";
 
 defineProps<{
@@ -30,7 +30,7 @@ const submit = () => {
 </script>
 
 <template>
-    <GuestLayout>
+    <LayoutGuest>
         <Head title="Log in" />
 
         <div
@@ -47,7 +47,7 @@ const submit = () => {
                     value="Email"
                 />
 
-                <TextInput
+                <InputText
                     id="email"
                     v-model="form.email"
                     type="email"
@@ -69,7 +69,7 @@ const submit = () => {
                     value="Password"
                 />
 
-                <TextInput
+                <InputText
                     id="password"
                     v-model="form.password"
                     type="password"
@@ -86,7 +86,7 @@ const submit = () => {
 
             <div class="mt-4 block">
                 <label class="flex items-center">
-                    <Checkbox
+                    <InputCheckbox
                         v-model:checked="form.remember"
                         name="remember"
                     />
@@ -104,14 +104,14 @@ const submit = () => {
                     Forgot your password?
                 </Link>
 
-                <PrimaryButton
+                <ButtonPrimary
                     class="ml-4"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >
                     Log in
-                </PrimaryButton>
+                </ButtonPrimary>
             </div>
         </form>
-    </GuestLayout>
+    </LayoutGuest>
 </template>

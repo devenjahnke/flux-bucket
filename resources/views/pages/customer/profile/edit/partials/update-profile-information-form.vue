@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import InputError from "@/Components/InputError.vue";
-import InputLabel from "@/Components/InputLabel.vue";
-import PrimaryButton from "@/Components/PrimaryButton.vue";
-import TextInput from "@/Components/TextInput.vue";
+import InputError from "@/views/components/inputs/input-error.vue";
+import InputLabel from "@/views/components/inputs/input-label.vue";
+import ButtonPrimary from "@/views/components/buttons/button-primary.vue";
+import InputText from "@/views/components/inputs/input-text.vue";
 import { Link, useForm, usePage } from "@inertiajs/vue3";
 
 const props = defineProps<{
@@ -39,7 +39,7 @@ const form = useForm<{
                     value="Name"
                 />
 
-                <TextInput
+                <InputText
                     id="name"
                     v-model="form.name"
                     type="text"
@@ -61,7 +61,7 @@ const form = useForm<{
                     value="Email"
                 />
 
-                <TextInput
+                <InputText
                     id="email"
                     v-model="form.email"
                     type="email"
@@ -98,7 +98,7 @@ const form = useForm<{
             </div>
 
             <div class="flex items-center gap-4">
-                <PrimaryButton :disabled="form.processing">Save</PrimaryButton>
+                <ButtonPrimary :disabled="form.processing">Save</ButtonPrimary>
 
                 <Transition
                     enter-from-class="opacity-0"

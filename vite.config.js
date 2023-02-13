@@ -7,7 +7,7 @@ export default defineConfig({
     plugins: [
         eslintPlugin(),
         laravel({
-            input: 'resources/js/app.ts',
+            input: 'resources/scripts/app.ts',
             refresh: true,
         }),
         vue({
@@ -19,6 +19,11 @@ export default defineConfig({
             },
         }),
     ],
+    resolve: {
+      alias: {
+          "@": "/resources",
+      },
+    },
     server: {
         hmr: {
             host: 'localhost'    // Fix CORS issue when serving via Vite locally

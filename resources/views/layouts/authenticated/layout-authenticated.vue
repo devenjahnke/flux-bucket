@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import ApplicationLogo from "@/Components/ApplicationLogo.vue";
-import Dropdown from "@/Components/Dropdown.vue";
-import DropdownLink from "@/Components/DropdownLink.vue";
-import NavLink from "@/Components/NavLink.vue";
-import ResponsiveNavLink from "@/Components/ResponsiveNavLink.vue";
+import ApplicationLogo from "@/views/components/application-logo.vue";
+import NavigationDropdown from "@/views/components/navigations/navigation-dropdown.vue";
+import NavigationDropdownLink from "@/views/components/navigations/navigation-dropdown-link.vue";
+import NavLink from "@/views/components/navigations/navigation-link.vue";
+import ResponsiveNavLink from "@/views/components/navigations/navigation-link-responsive.vue";
 import { Link } from "@inertiajs/vue3";
 
 const showingNavigationDropdown = ref<boolean>(false);
@@ -39,7 +39,7 @@ const showingNavigationDropdown = ref<boolean>(false);
                         <div class="hidden sm:ml-6 sm:flex sm:items-center">
                             <!-- Settings Dropdown -->
                             <div class="relative ml-3">
-                                <Dropdown
+                                <NavigationDropdown
                                     align="right"
                                     width="48"
                                 >
@@ -68,17 +68,17 @@ const showingNavigationDropdown = ref<boolean>(false);
                                     </template>
 
                                     <template #content>
-                                        <DropdownLink :href="route('profile.edit')"> Profile </DropdownLink>
+                                        <NavigationDropdownLink :href="route('profile.edit')"> Profile </NavigationDropdownLink>
 
-                                        <DropdownLink
+                                        <NavigationDropdownLink
                                             :href="route('logout')"
                                             method="post"
                                             as="button"
                                         >
                                             Log Out
-                                        </DropdownLink>
+                                        </NavigationDropdownLink>
                                     </template>
-                                </Dropdown>
+                                </NavigationDropdown>
                             </div>
                         </div>
 
