@@ -9,8 +9,8 @@ import { route } from "momentum-trail";
 const user = usePage().props.user;
 
 const form = useForm<{
-    name: string,
-    email: string
+    name: string;
+    email: string;
 }>({
     name: user.name,
     email: user.email,

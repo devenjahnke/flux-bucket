@@ -3,7 +3,6 @@ import LayoutAuthenticated from "@/views/layouts/authenticated/layout-authentica
 import UpdatePasswordForm from "@/views/pages/customer/profile/edit/partials/update-password-form.vue";
 import UpdateProfileInformationForm from "@/views/pages/customer/profile/edit/partials/update-profile-information-form.vue";
 import { Head } from "@inertiajs/vue3";
-
 </script>
 
 <template>
@@ -17,9 +16,7 @@ import { Head } from "@inertiajs/vue3";
         <div class="py-12">
             <div class="mx-auto max-w-7xl space-y-6 sm:px-6 lg:px-8">
                 <div class="bg-white p-4 shadow sm:rounded-lg sm:p-8">
-                    <UpdateProfileInformationForm
-                        class="max-w-xl"
-                    />
+                    <UpdateProfileInformationForm class="max-w-xl" />
                 </div>
 
                 <div class="bg-white p-4 shadow sm:rounded-lg sm:p-8">

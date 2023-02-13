@@ -9,14 +9,14 @@ import { Head, useForm } from "@inertiajs/vue3";
 import { route } from "momentum-trail";
 
 defineProps<{
-    canResetPassword: boolean,
-    status: string|null
+    canResetPassword: boolean;
+    status: string | null;
 }>();
 
 const form = useForm<{
-    email: string,
-    password: string,
-    remember: boolean
+    email: string;
+    password: string;
+    remember: boolean;
 }>({
     email: "",
     password: "",

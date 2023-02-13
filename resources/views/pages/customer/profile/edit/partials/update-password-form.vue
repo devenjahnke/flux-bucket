@@ -11,9 +11,9 @@ const passwordInput = ref<HTMLInputElement>();
 const currentPasswordInput = ref<HTMLInputElement>();
 
 const form = useForm<{
-    current_password: string,
-    password: string,
-    password_confirmation: string
+    current_password: string;
+    password: string;
+    password_confirmation: string;
 }>({
     current_password: "",
     password: "",

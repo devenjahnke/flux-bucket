@@ -1,9 +1,12 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
-    type?: "submit" | "button" | "reset"
-}>(), {
-    type: "submit"
-});
+withDefaults(
+    defineProps<{
+        type?: "submit" | "button" | "reset";
+    }>(),
+    {
+        type: "submit",
+    }
+);
 </script>
 
 <template>

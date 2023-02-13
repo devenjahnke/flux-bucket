@@ -11,7 +11,10 @@ const appName = window.document.getElementsByTagName("title")[0]?.innerText || "
 createInertiaApp({
     title: (title: string) => `${title} - ${appName}`,
     resolve: (name: string) =>
-        resolvePageComponent(`../views/pages/${name}.vue`, import.meta.glob("../views/pages/**/*.vue")) as Promise<DefineComponent>,
+        resolvePageComponent(
+            `../views/pages/${name}.vue`,
+            import.meta.glob("../views/pages/**/*.vue")
+        ) as Promise<DefineComponent>,
     setup({ el, App, props, plugin }) {
         // eslint-disable-next-line vue/component-api-style
         createApp({ render: () => h(App, props) })

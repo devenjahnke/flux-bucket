@@ -5,7 +5,7 @@ import NavigationDropdown from "@/views/components/navigations/navigation-dropdo
 import NavigationDropdownLink from "@/views/components/navigations/navigation-dropdown-link.vue";
 import NavLink from "@/views/components/navigations/navigation-link.vue";
 import ResponsiveNavLink from "@/views/components/navigations/navigation-link-responsive.vue";
-import {Link, usePage} from "@inertiajs/vue3";
+import { Link, usePage } from "@inertiajs/vue3";
 import { route } from "momentum-trail";
 
 const showingNavigationDropdown = ref<boolean>(false);
@@ -70,7 +70,9 @@ const page = usePage();
                                     </template>
 
                                     <template #content>
-                                        <NavigationDropdownLink :href="route('profile.edit')"> Profile </NavigationDropdownLink>
+                                        <NavigationDropdownLink :href="route('profile.edit')">
+                                            Profile
+                                        </NavigationDropdownLink>
 
                                         <NavigationDropdownLink
                                             :href="route('logout')"
