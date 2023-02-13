@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "617d9f97910bdc3413ff19dc87810f32",
+    "content-hash": "20d2ab3d00c0370bfc9844f8e02bd5ed",
     "packages": [
         {
             "name": "based/momentum-trail",
@@ -8602,7 +8602,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.0.2"
+        "php": "^8.2"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
