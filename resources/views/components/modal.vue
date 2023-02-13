@@ -1,18 +1,21 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, watch } from "vue";
 
-const props = withDefaults(defineProps<{
-    show: boolean,
-    maxWidth: string,
-    closeable: boolean
-}>(), {
-    show: false,
-    default: "2xl",
-    closeable: true
-});
+const props = withDefaults(
+    defineProps<{
+        show: boolean;
+        maxWidth: string;
+        closeable: boolean;
+    }>(),
+    {
+        show: false,
+        default: "2xl",
+        closeable: true,
+    }
+);
 
 const emit = defineEmits<{
-    (e: "close"): void
+    (e: "close"): void;
 }>();
 
 watch(

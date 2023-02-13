@@ -2,14 +2,18 @@
 import { onMounted, ref } from "vue";
 
 defineProps<{
-    modelValue: string
+    modelValue: string;
 }>();
 
-defineEmits<{
-    (e: "update:modelValue"): string
+const emit = defineEmits<{
+    (e: "update:modelValue", value: string): string;
 }>();
 
 const input = ref<HTMLInputElement>();
+
+const updateValue = (e: Event) => {
+    emit("update:modelValue", (e.target as HTMLInputElement).value);
+};
 
 onMounted(() => {
     if (input.value?.hasAttribute("autofocus")) {
@@ -25,6 +29,6 @@ defineExpose({ focus: () => input.value?.focus() });
         ref="input"
         class="rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
         :value="modelValue"
-        @input="$emit('update:modelValue', $event.target.value)"
+        @input="updateValue"
     />
 </template>

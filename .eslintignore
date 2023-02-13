@@ -2,3 +2,4 @@ node_modules
 vendor
 public
 public/dist
+resources/scripts/routes/routes.json

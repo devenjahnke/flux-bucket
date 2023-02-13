@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import {Head, Link, usePage} from "@inertiajs/vue3";
+import { Head, Link, usePage } from "@inertiajs/vue3";
 import { route } from "momentum-trail";
 
 defineProps<{
-    canLogin: boolean,
-    canRegister: boolean,
-    laravelVersion: string,
-    phpVersion: string
+    canLogin: boolean;
+    canRegister: boolean;
+    laravelVersion: string;
+    phpVersion: string;
 }>();
 
 const page = usePage();
@@ -192,19 +192,19 @@ const page = usePage();
                                     class="underline"
                                     >Forge</a
                                 >
-,
+                                ,
                                 <a
                                     href="https://vapor.laravel.com"
                                     class="underline"
                                     >Vapor</a
                                 >
-,
+                                ,
                                 <a
                                     href="https://nova.laravel.com"
                                     class="underline"
                                     >Nova</a
                                 >
-, and
+                                , and
                                 <a
                                     href="https://envoyer.io"
                                     class="underline"
@@ -217,31 +217,31 @@ const page = usePage();
                                     class="underline"
                                     >Cashier</a
                                 >
-,
+                                ,
                                 <a
                                     href="https://laravel.com/docs/dusk"
                                     class="underline"
                                     >Dusk</a
                                 >
-,
+                                ,
                                 <a
                                     href="https://laravel.com/docs/broadcasting"
                                     class="underline"
                                     >Echo</a
                                 >
-,
+                                ,
                                 <a
                                     href="https://laravel.com/docs/horizon"
                                     class="underline"
                                     >Horizon</a
                                 >
-,
+                                ,
                                 <a
                                     href="https://laravel.com/docs/sanctum"
                                     class="underline"
                                     >Sanctum</a
                                 >
-,
+                                ,
                                 <a
                                     href="https://laravel.com/docs/telescope"
                                     class="underline"
