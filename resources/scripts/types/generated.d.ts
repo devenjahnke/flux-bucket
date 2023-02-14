@@ -18,4 +18,8 @@ export type NotificationType = {
 name: string;
 value: string;
 };
+export type UserRole = {
+name: string;
+value: string;
+};
 }
