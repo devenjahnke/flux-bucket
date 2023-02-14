@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use App\Data\SharedData;
 use App\Data\UserData;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
 
@@ -33,7 +34,7 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         $state = new SharedData(
-            user: fn() => UserData::from($request->user()),
+            user: fn() => Auth::check() ? UserData::from(Auth::user()) : null,
         );
 
         return array_merge(
