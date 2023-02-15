@@ -1,10 +1,24 @@
 <script setup lang="ts">
 import ButtonFavorite from "@/views/components/buttons/button-favorite.vue";
 import ButtonCheckout from "@/views/components/buttons/button-checkout.vue";
+import { router } from "@inertiajs/vue3";
+import { route } from "momentum-trail";
 
-defineProps<{
+const props = defineProps<{
     product: App.Data.ProductData;
 }>();
+
+const favoriteProduct = () => {
+    router.patch(
+        route("user.favorite-product"),
+        {
+            product_id: props.product.id,
+        },
+        {
+            preserveScroll: true,
+        }
+    );
+};
 </script>
 
 <template>
@@ -29,7 +43,10 @@ defineProps<{
             </div>
 
             <div class="flex justify-between space-x-4">
-                <ButtonFavorite :active="product.is_favorite" />
+                <ButtonFavorite
+                    :active="product.is_favorite"
+                    @click="favoriteProduct"
+                />
 
                 <ButtonCheckout />
             </div>
