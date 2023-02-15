@@ -1,66 +1,93 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Flux Bucket Technical Project
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Application Setup
 
-## About Laravel
+### Install Laravel Sail
+Before beginning, ensure that you have Docker Desktop installed on your device. Then, install the applications dependencies by running the following command:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+```shell
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v "$(pwd):/var/www/html" \
+    -w /var/www/html \
+    laravelsail/php82-composer:latest \
+    composer install --ignore-platform-reqs
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Once this has completed, you can spin up the Sail container network by running:
+```shell
+./vendor/bin/sail up
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+It is recommended that you define a shell alias for interacting with Sail. You can do so with the following:
+```shell
+alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+```
 
-## Learning Laravel
+### Configure the Environment
+Once the Sail containers are running, navigate to `http://localhost` in your browser. You should be presented with a `500 Server Error` as the application's environment has not yet been configured. 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+First, create a `.env` file using the `.env.example` file located in the application's root directory:
+```shell
+cp .env.example .env
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Then, generate a new application key:
+```shell
+sail artisan key:generate
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Next, update the following environment variables:
+```dotenv
+APP_NAME="Flux Bucket"
 
-## Laravel Sponsors
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_USERNAME=sail
+DB_PASSWORD=password
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+REDIS_HOST=redis
 
-### Premium Partners
+SCOUT_DRIVER=meilisearch
+MEILISEARCH_HOST=http://meilisearch:7700
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### Build the Application
+Start by installing all NPM dependencies:
+```shell
+sail npm install
+```
 
-## Contributing
+Next, run the NPM build script to build the application's frontend assets:
+```shell
+sail npm run build
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Set up the Database
+Because the Sail container network was created before the application's environment was configured, the `flux_bucket` database table was not created. The easiest way to create this table is to delete the existing Sail container network volumes and recreate them. This can be accomplished by running the following commands:
+```shell
+sail down -v && sail up -d
+```
 
-## Code of Conduct
+Now that the `flux_bucket` table exists, we can run the database migrations and seeder.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```shell
+sail artisan migrate --seed
+```
 
-## Security Vulnerabilities
+### Set up Local Storage
+Because the application relies on the `local` driver for storage, we must run the following command to create a symbolic link:
+```shell
+sail artisan storage:link
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Logging In
+Now that the application is set up, it's time to log in and take it for a spin. The database has been seeded with two users. Their credentials are as follows:
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- Josh Dockery
+  - Email: `josh@fluxbucket.com`
+  - Password: `password`
+- Deven Jahnke
+    - Email: `hello@devenjahnke.com`
+    - Password: `password`
