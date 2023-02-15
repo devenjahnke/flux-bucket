@@ -33,8 +33,8 @@ const favoriteProduct = computed(() => {
 
             <div class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
                 <ProductCard
-                    v-for="product in products"
-                    :key="product.id"
+                    v-for="(product, key) in products"
+                    :key="key"
                     :product="product"
                 />
             </div>

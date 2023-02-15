@@ -4,7 +4,7 @@ import IconHeart from "@/views/components/icons/icon-heart.vue";
 withDefaults(
     defineProps<{
         type?: "submit" | "button" | "reset";
-        active: boolean;
+        active: boolean | null;
     }>(),
     {
         type: "button",

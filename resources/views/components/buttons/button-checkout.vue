@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import IconShoppingCart from "@/views/components/icons/icon-shopping-cart.vue";
-import Modal from "@/views/components/modal.vue";
 import { ref } from "vue";
 
 withDefaults(
