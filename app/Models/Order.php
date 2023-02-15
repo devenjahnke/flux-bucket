@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\OrderStatus;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -21,6 +22,7 @@ class Order extends Model
 
     protected $casts = [
         'status' => OrderStatus::class,
+        'created_at' => 'datetime:Y-m-d H:i:s'
     ];
 
     public function user(): BelongsTo

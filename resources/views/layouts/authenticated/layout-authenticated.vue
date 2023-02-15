@@ -36,6 +36,13 @@ const page = usePage();
                                 >
                                     Menu
                                 </NavLink>
+
+                                <NavLink
+                                    :href="route('order.index')"
+                                    :active="route().current('order.index')"
+                                >
+                                    Orders
+                                </NavLink>
                             </div>
                         </div>
 
@@ -141,6 +148,13 @@ const page = usePage();
                             :active="route().current('menu')"
                         >
                             Menu
+                        </ResponsiveNavLink>
+
+                        <ResponsiveNavLink
+                            :href="route('order.index')"
+                            :active="route().current('order.index')"
+                        >
+                            Orders
                         </ResponsiveNavLink>
                     </div>
 
