@@ -1,5 +1,8 @@
 # Flux Bucket Technical Project
 
+## Instructions
+The instructions provided for this technical project can be found in the `Instructions.pdf` file in the application's root directory.
+
 ## Application Setup
 
 ### Install Laravel Sail
