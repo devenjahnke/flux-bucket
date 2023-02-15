@@ -2,32 +2,30 @@
 
 namespace App\ValueObjects;
 
-class Money
-{
-    private readonly int $cents;
+use http\Exception\InvalidArgumentException;
+use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 
-    public function __construct(int $cents)
+#[TypeScript]
+final class Money
+{
+    public readonly int $cents;
+    public readonly float $dollars;
+    protected function __construct(int $cents)
     {
+        if ($cents < 0) {
+            throw new InvalidArgumentException();
+        }
         $this->cents = $cents;
+        $this->dollars = number_format($this->cents / 100, 2);
     }
 
-    public static function fromCents(int $cents): self
+    public static function cents(int $cents): self
     {
         return new self($cents);
     }
 
-    public static function fromDollars(float $dollars): self
+    public static function dollars(float $dollars): self
     {
-        return new self($dollars * 100);
-    }
-
-    public function toCents(): int
-    {
-        return $this->cents;
-    }
-
-    public function toDollars(): string
-    {
-        return number_format($this->cents / 100, 2);
+        return new self(bcmul($dollars, 100));
     }
 }

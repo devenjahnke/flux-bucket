@@ -2,12 +2,11 @@
 
 namespace App\Http\Middleware;
 
-use App\Data\SharedData;
-use App\Data\UserData;
+use App\Data\Shared\SharedData;
+use App\Data\Shared\UserData;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
-use Tightenco\Ziggy\Ziggy;
 
 class HandleInertiaRequests extends Middleware
 {

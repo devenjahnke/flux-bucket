@@ -30,10 +30,10 @@ const page = usePage();
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink
-                                    :href="route('dashboard')"
-                                    :active="route().current('dashboard')"
+                                    :href="route('menu')"
+                                    :active="route().current('menu')"
                                 >
-                                    Dashboard
+                                    Menu
                                 </NavLink>
                             </div>
                         </div>
@@ -132,10 +132,10 @@ const page = usePage();
                 >
                     <div class="space-y-1 pt-2 pb-3">
                         <ResponsiveNavLink
-                            :href="route('dashboard')"
-                            :active="route().current('dashboard')"
+                            :href="route('menu')"
+                            :active="route().current('menu')"
                         >
-                            Dashboard
+                            Menu
                         </ResponsiveNavLink>
                     </div>
 
@@ -175,7 +175,7 @@ const page = usePage();
             </header>
 
             <!-- Page Content -->
-            <main>
+            <main class="mx-auto max-w-7xl px-4 pb-12 pt-6 sm:px-6 sm:pb-16 sm:pt-8 lg:px-8">
                 <slot />
             </main>
         </div>

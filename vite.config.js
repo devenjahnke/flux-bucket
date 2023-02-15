@@ -20,7 +20,7 @@ export default defineConfig({
             },
         }),
         watch({
-            pattern: "app/{Data,Enums}/**/*.php",
+            pattern: "app/{Data,Enums,ValueObjects}/**/*.php",
             command: "php artisan typescript:transform",
         }),
         watch({
