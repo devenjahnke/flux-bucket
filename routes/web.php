@@ -17,12 +17,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('guest/welcome/page', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => false,
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return redirect(\route('login'));
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -33,10 +28,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/orders', [\App\Http\Controllers\Customer\OrderController::class, 'index'])->name('order.index');
     Route::post('/orders', [\App\Http\Controllers\Customer\OrderController::class, 'store'])->name('order.store');
 });
-
-Route::get('/dashboard', function () {
-    return Inertia::render('customer/dashboard/page');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
