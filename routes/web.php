@@ -25,6 +25,10 @@ Route::get('/', function () {
     ]);
 });
 
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/menu', [\App\Http\Controllers\Customer\ProductController::class, 'index'])->name('menu');
+});
+
 Route::get('/dashboard', function () {
     return Inertia::render('customer/dashboard/page');
 })->middleware(['auth', 'verified'])->name('dashboard');

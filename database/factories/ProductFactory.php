@@ -20,7 +20,7 @@ class ProductFactory extends Factory
         return [
             'name' => $this->faker->words(3, true),
             'description' => $this->faker->paragraph(),
-            'price' => Money::fromCents($this->faker->numberBetween(100, 100000)),
+            'price' => Money::cents($this->faker->numberBetween(100, 100000)),
             'image' => '/',
         ];
     }

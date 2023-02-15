@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Data;
+namespace App\Data\Shared;
 
 use App\Enums\NotificationType;
 use Spatie\LaravelData\Data;

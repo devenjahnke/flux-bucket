@@ -4,12 +4,12 @@ import { computed, onMounted, onUnmounted, watch } from "vue";
 const props = withDefaults(
     defineProps<{
         show: boolean;
-        maxWidth: string;
-        closeable: boolean;
+        maxWidth?: string;
+        closeable?: boolean;
     }>(),
     {
         show: false,
-        default: "2xl",
+        maxWidth: "2xl",
         closeable: true,
     }
 );
@@ -64,7 +64,7 @@ const maxWidthClass = computed(() => {
         <transition leave-active-class="duration-200">
             <div
                 v-show="show"
-                class="fixed inset-0 z-50 overflow-y-auto px-4 py-6 sm:px-0"
+                class="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto px-4 py-6 sm:px-0"
                 scroll-region
             >
                 <transition
@@ -80,7 +80,7 @@ const maxWidthClass = computed(() => {
                         class="fixed inset-0 transform transition-all"
                         @click="close"
                     >
-                        <div class="absolute inset-0 bg-gray-500 opacity-75" />
+                        <div class="absolute inset-0 bg-gray-500 opacity-10" />
                     </div>
                 </transition>
 
