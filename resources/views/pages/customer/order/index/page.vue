@@ -25,8 +25,8 @@ defineProps<{
                 class="grid grid-cols-1 gap-y-4 sm:gap-x-6 sm:gap-y-10 lg:gap-x-8"
             >
                 <OrderCard
-                    v-for="order in orders"
-                    :key="order.id"
+                    v-for="(order, key) in orders"
+                    :key="key"
                     :order="order"
                 />
             </div>

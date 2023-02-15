@@ -4,10 +4,11 @@ import { router } from "@inertiajs/vue3";
 import { route } from "momentum-trail";
 
 const props = defineProps<{
-    productId: number;
+    productId: number | null;
 }>();
 
 const addToCart = () => {
+    if (!props.productId) return;
     router.patch(
         route("cart.update"),
         {

@@ -3,3 +3,4 @@ vendor
 public
 public/dist
 resources/scripts/routes/routes.json
+resources/images

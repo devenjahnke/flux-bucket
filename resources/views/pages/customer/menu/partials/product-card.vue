@@ -48,7 +48,7 @@ const favoriteProduct = () => {
                     @click="favoriteProduct"
                 />
 
-                <AddToCartButton :product-id="product.id" />
+                <AddToCartButton :product-id="product?.id" />
             </div>
         </div>
     </article>
