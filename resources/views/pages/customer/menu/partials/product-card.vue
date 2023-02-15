@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import ButtonFavorite from "@/views/components/buttons/button-favorite.vue";
-import ButtonCheckout from "@/views/components/buttons/button-checkout.vue";
 import { router } from "@inertiajs/vue3";
 import { route } from "momentum-trail";
+import AddToCartButton from "@/views/pages/customer/menu/partials/add-to-cart-button.vue";
 
 const props = defineProps<{
     product: App.Data.ProductData;
@@ -48,7 +48,7 @@ const favoriteProduct = () => {
                     @click="favoriteProduct"
                 />
 
-                <ButtonCheckout />
+                <AddToCartButton :product-id="product.id" />
             </div>
         </div>
     </article>

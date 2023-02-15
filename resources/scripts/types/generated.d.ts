@@ -24,6 +24,7 @@ body: string;
 export type SharedData = {
 user: App.Data.Shared.UserData;
 notification: App.Data.Shared.NotificationData | null;
+cart: App.Data.ProductData | null;
 };
 export type UserData = {
 id: number;

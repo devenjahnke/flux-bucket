@@ -7,6 +7,7 @@ import NavLink from "@/views/components/navigations/navigation-link.vue";
 import ResponsiveNavLink from "@/views/components/navigations/navigation-link-responsive.vue";
 import { Link, usePage } from "@inertiajs/vue3";
 import { route } from "momentum-trail";
+import CartPopover from "@/views/layouts/authenticated/partials/cart-popover.vue";
 
 const showingNavigationDropdown = ref<boolean>(false);
 const page = usePage();
@@ -84,10 +85,14 @@ const page = usePage();
                                     </template>
                                 </NavigationDropdown>
                             </div>
+
+                            <CartPopover class="ml-3" />
                         </div>
 
                         <!-- Hamburger -->
-                        <div class="-mr-2 flex items-center sm:hidden">
+                        <div class="-mr-2 flex items-center space-x-4 sm:hidden">
+                            <CartPopover class="sm:hidden" />
+
                             <button
                                 class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 transition duration-150 ease-in-out hover:bg-gray-100 hover:text-gray-500 focus:bg-gray-100 focus:text-gray-500 focus:outline-none"
                                 @click="showingNavigationDropdown = !showingNavigationDropdown"
