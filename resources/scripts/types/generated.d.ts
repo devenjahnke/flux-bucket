@@ -2,10 +2,11 @@ declare namespace App.Data {
 export type OrderData = {
 id: number | null;
 reference_number: string;
-user: App.Data.Shared.UserData;
-product: App.Data.ProductData;
+user?: App.Data.Shared.UserData;
+product?: App.Data.ProductData;
 status: any;
 notes: string | null;
+created_at: string | null;
 };
 export type ProductData = {
 id: number | null;

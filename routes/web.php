@@ -30,7 +30,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/user/favorite-product', \App\Http\Controllers\Customer\FavoriteProductController::class)->name('user.favorite-product');
     Route::patch('/cart', [\App\Http\Controllers\Customer\CartController::class, 'update'])->name('cart.update');
     Route::delete('/cart', [\App\Http\Controllers\Customer\CartController::class, 'destroy'])->name('cart.delete');
-    Route::post('/order', [\App\Http\Controllers\Customer\OrderController::class, 'store'])->name('order.store');
+    Route::get('/orders', [\App\Http\Controllers\Customer\OrderController::class, 'index'])->name('order.index');
+    Route::post('/orders', [\App\Http\Controllers\Customer\OrderController::class, 'store'])->name('order.store');
 });
 
 Route::get('/dashboard', function () {
