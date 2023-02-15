@@ -17,6 +17,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        \App\Models\User::factory()->create([
+            'name' => 'Deven Jahnke',
+            'email' => 'hello@devenjahnke.com',
+            'password' => bcrypt('password'),
+            'favorite_product_id' => null,
+        ]);
+
+        \App\Models\User::factory()->create([
+            'name' => 'Josh Dockery',
+            'email' => 'josh@fluxbucket.com ',
+            'password' => bcrypt('password'),
+            'favorite_product_id' => null,
+        ]);
+
         if (! Storage::exists('products')) {
             Storage::disk('public')->put(
                 'products/burger.jpg',
@@ -85,13 +99,6 @@ class DatabaseSeeder extends Seeder
             'price' => Money::dollars(16.99),
             'image' => 'products/pizza.jpg',
         ]);
-
-         \App\Models\User::factory()->create([
-             'name' => 'Deven Jahnke',
-             'email' => 'hello@devenjahnke.com',
-             'password' => bcrypt('password'),
-             'favorite_product_id' => null,
-         ]);
 
 
     }
