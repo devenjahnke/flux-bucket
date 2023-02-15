@@ -28,6 +28,9 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/menu', [\App\Http\Controllers\Customer\ProductController::class, 'index'])->name('menu');
     Route::patch('/user/favorite-product', \App\Http\Controllers\Customer\FavoriteProductController::class)->name('user.favorite-product');
+    Route::patch('/cart', [\App\Http\Controllers\Customer\CartController::class, 'update'])->name('cart.update');
+    Route::delete('/cart', [\App\Http\Controllers\Customer\CartController::class, 'destroy'])->name('cart.delete');
+    Route::post('/order', [\App\Http\Controllers\Customer\OrderController::class, 'store'])->name('order.store');
 });
 
 Route::get('/dashboard', function () {

@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import ButtonFavorite from "@/views/components/buttons/button-favorite.vue";
-import ButtonCheckout from "@/views/components/buttons/button-checkout.vue";
 import IconHeart from "@/views/components/icons/icon-heart.vue";
+import AddToCartButton from "@/views/pages/customer/menu/partials/add-to-cart-button.vue";
 
 defineProps<{
     product?: App.Data.ProductData;
@@ -33,7 +32,7 @@ defineProps<{
             </div>
 
             <div class="flex justify-between space-x-4 sm:justify-end">
-                <ButtonCheckout />
+                <AddToCartButton :product-id="product.id" />
             </div>
         </div>
     </article>
